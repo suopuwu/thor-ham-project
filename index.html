@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why're you reading this?</title>
+    <script>
+        $(function() {
+            $('#start-buddon').click(function() {
+                $('.disapear-box').css('opacity', '0');
+                $('#start-buddon').css('opacity', '0');
+                $('#mainDisplay')[0].play();
+                window.setTimeout(function() {
+                    $('.disapear-box').css('display', 'none');
+                }, 500)
+                console.log('test');
+            });
+            $('#mainDisplay').click(function() {
+                if ($('#mainDisplay')[0].paused === true) {
+                    $('#mainDisplay')[0].play();
+                    console.log('test');
+                } else {
+                    $('#mainDisplay')[0].pause();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <span class="disapear-box">
+        <div id="start-buddon">CLICK TO BEGIN</div>
+    </span>
+    <video id="mainDisplay" src="potato.mp4" width="100%;" height="100%"></video>
+</body>
+</html>
