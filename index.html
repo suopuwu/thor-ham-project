@@ -9,11 +9,18 @@
     <script>
         $(function() {
             $('#start-buddon').click(function() {
-                $('.disapear-box').css('opacity', '0');
                 $('#start-buddon').css('opacity', '0');
-                $('#mainDisplay')[0].play();
                 window.setTimeout(function() {
-                    $('.disapear-box').css('display', 'none');
+                    $('#start-buddon').css('opacity', '1');
+                    $('#start-buddon').html('<div>Magnus Chase: The Hammer of Thor</div> <p style="margin:auto">By Rick Riordan</p>');
+                    window.setTimeout(function() {
+                        $('#mainDisplay')[0].play();
+                        $('.disapear-box').css('opacity', '0');
+                        window.setTimeout(function() {
+
+                            $('.disapear-box').css('display', 'none');
+                        }, 500);
+                    }, 3000);
                 }, 500)
                 console.log('test');
             });

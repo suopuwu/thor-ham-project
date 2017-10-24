@@ -29,6 +29,10 @@ body {
 }
 
 #start-buddon {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
     transition: all 0.5s;
     color: white;
 }
@@ -37,4 +41,8 @@ body {
     transform: scale(1.1);
     cursor: pointer;
     user-select: none;
+}
+
+p {
+    font-size: 0.5;
 }
