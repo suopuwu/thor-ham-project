@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -8,6 +9,16 @@
     <title>Why're you reading this?</title>
     <script>
         $(function() {
+            var URL = window.URL || window.webkitURL;
+            var inputNode = document.querySelector('input')
+            var currentVideo;
+            inputNode.addEventListener('change', function(event) {
+                currentVideo = this.files[0];
+                console.log(currentVideo);
+                var fileURL = URL.createObjectURL(currentVideo)
+                $('#mainDisplay')[0].src = fileURL;
+            }, false);
+
             $('#start-buddon').click(function() {
                 $('#start-buddon').css('opacity', '0');
                 window.setTimeout(function() {
@@ -24,6 +35,7 @@
                 }, 500)
                 console.log('test');
             });
+
             $('#mainDisplay').click(function() {
                 if ($('#mainDisplay')[0].paused === true) {
                     $('#mainDisplay')[0].play();
@@ -33,13 +45,16 @@
                 }
             });
         });
+
     </script>
 </head>
 
 <body>
     <span class="disapear-box">
         <div id="start-buddon">CLICK TO BEGIN</div>
+        <input type="file">
     </span>
     <video id="mainDisplay" src="potato.mp4" width="100%;" height="100%"></video>
 </body>
+
 </html>
